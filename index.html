@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyPulse - Study Time Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>StudyPulse</h1>
+        <p>Track Your Rhythm, Reach Your Goals</p>
+      </header>
+
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-value" id="totalHours">0h</div>
+          <div class="stat-label">Total Studied</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="dailyAverage">0h</div>
+          <div class="stat-label">Daily Average</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="currentStreak">0</div>
+          <div class="stat-label">Day Streak</div>
+        </div>
+      </div>
+
+      <div class="timer-card">
+        <div class="timer-display" id="timer">00:00:00</div>
+        <div class="controls">
+          <button class="button button--primary" id="startBtn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 3l14 9-14 9V3z" />
+            </svg>
+            Start
+          </button>
+          <button class="button button--danger" id="stopBtn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="6" y="4" width="4" height="16" />
+              <rect x="14" y="4" width="4" height="16" />
+            </svg>
+            Stop
+          </button>
+          <button class="button button--secondary" id="resetBtn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="progressChart"></canvas>
+      </div>
+
+      <div class="sessions-panel">
+        <h2>Session History</h2>
+        <div class="session-list" id="sessionLog"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

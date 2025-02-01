@@ -5,6 +5,7 @@ class StudyTracker {
     this.isRunning = false;
     this.seconds = 0;
     this.chart = null;
+    this.startTime = 0;
 
     this.initDOMReferences();
     this.initEventListeners();
@@ -36,6 +37,7 @@ class StudyTracker {
   startTimer() {
     if (!this.isRunning) {
       this.isRunning = true;
+      this.startTime = new Date().getTime();
       this.timer = setInterval(() => this.updateTimer(), 1000);
       this.toggleButtonStates();
     }
@@ -53,7 +55,7 @@ class StudyTracker {
   }
 
   updateTimer() {
-    this.seconds++;
+    this.seconds = Math.round((new Date().getTime() - this.startTime) / 1000);
     this.updateDisplay();
   }
 
@@ -177,6 +179,7 @@ class StudyTracker {
           y: {
             beginAtZero: true,
             ticks: {
+              stepSize: 0.5,
               callback: (value) => `${value}h`,
             },
           },
